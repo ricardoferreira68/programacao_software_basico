@@ -1,0 +1,8 @@
+============================
+*   LINGUAGEM C -  fputs   *
+============================
+
+Este arquivo foi gerado
+por um programa com a
+função fputs da Linguagem C.
+============================

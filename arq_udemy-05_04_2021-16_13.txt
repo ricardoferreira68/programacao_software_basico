@@ -1,0 +1,4 @@
+Udemy
+Linguagem C - direto ao ponto
+Linguagem C em curso prático abordando: variáveis, estruturas de decisão, loopings, arrays, struct, arquivos, funções
+https://www.udemy.com/course/linguagem-c-direto-ao-ponto/
