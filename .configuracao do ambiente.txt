@@ -1,0 +1,9 @@
+=====================================================
+Configurações para facilitar a operação via terminal
+-----------------------------------------------------
+# Desativar o ambiente virtual criado pelo Anaconda:
+conda deactivate
+
+# Alterar o conteúdo de exibição do prompt:
+# Exibe apenas o usuário e a última pasta.
+export PS1="\u:\W> "
