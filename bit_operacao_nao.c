@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main(void)
 {
-    int A = 4, C, D;
+    int A = 0, C, D;
     C = ~A;
     D = !A;
     printf("C = %d\n\n", C);
