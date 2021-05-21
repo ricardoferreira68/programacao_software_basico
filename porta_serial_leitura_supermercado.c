@@ -37,15 +37,19 @@ int main(int argc, char *argv[])
         printf("Mensagem: %s\n", mensagem);
         printf("----------------------------------------\n");
         dado = le_porta();
-        // Tratamento do dado lido.
-        filtro = dado & 0b01000000;  // Só interessa o bit da temperatura.
-        if (quantidade>=LOTACAO)
-            strcpy(mensagem, "Entrada Proíbida! LOTADO!");
+        if(dado & 0b01010011 == 0b01010011)
+        { 
+            if (quantidade>0)
+                sprintf(mensagem, "Cliente saiu!", --quantidade);
+        }
         else
-            if(filtro == 0b01000000)
-                strcpy(mensagem, "Entrada Proíbida!");
+            if (quantidade>=LOTACAO)
+                strcpy(mensagem, "Entrada Proíbida! LOTADO!");
             else
-                sprintf(mensagem, "Entrada liberada! Cliente %3d", ++quantidade);
+                if(dado == 0b01000000)
+                    strcpy(mensagem, "Entrada Proíbida! FEBRE!");
+                else
+                    sprintf(mensagem, "Entrada liberada! Cliente %3d", ++quantidade);
     }while (1);
     return 0;
 }
@@ -55,11 +59,9 @@ char le_porta(void)
     int porta;  // Usado para controle de porta aberta com open().
     char dado;  // Recebe o caractere lido da porta.
     char LF;  // Usado para ler e despresar o line feed da leitura da porta.
-    porta = open(PORTA_LEITURA, 0);  // Abre a porta serial.
+    porta = open(PORTA_LEITURA, O_RDONLY);  // Abre a porta serial.
     // Lê um byte da porta serial.
     read(porta, &dado, sizeof(dado));
-    // Segunda leitura para eliminar o LF do buffer.
-    read(porta, &LF, sizeof(dado));
     close(porta);  // Fecha a parta serial.
     return dado;  // Retorna o caracter lido.
 }
