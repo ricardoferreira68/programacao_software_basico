@@ -7,7 +7,7 @@
     "sudo apt-get install socat" - Instalar o socat.
     "socat -d -d pty,raw,echo=0 pty,raw,echo=0" - Executar o emulador.
     "echo "@" > /dev/pts/2" - Escreve na porta 2.
-    "cat < /dev/pts/3" - escuta a porta 3.
+    "cat < /dev/pts/3" - escuta a porta 3. 
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,7 +15,7 @@
 #include <fcntl.h>
 #include <string.h>
 #define LOTACAO 5
-#define PORTA_LEITURA "/dev/pts/2"
+#define PORTA_LEITURA "/dev/pts/5" 
 
 void escreva_na_porta(char);
 
