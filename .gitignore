@@ -1,3 +1,17 @@
+# Projeto no Code::Block
+fabrica_varre_bem
+
+# Visual Studio Code
+.vscode/
+
+# Para ignorar os arquivos binários
+# ignorar tudo.
+*
+# Exceto os arquivos com extensão .c
+!*.c
+# Exceto os arquivos com extensão .cpp
+!*.cpp
+
 # Build and Release Folders
 bin-debug/
 bin-release/
