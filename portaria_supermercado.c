@@ -39,10 +39,10 @@
                        01000100 & 
                        01000000
                        --------
-            filtrar =  01000000  = '@'     
+            filtrar =  01000000  = '@'  40    
  
             dado     = '*';
-                       00101010 & 
+                       00101010 &    //2A
                        01000000
                        --------
             filtrar =  00000000 = '0'  
@@ -51,10 +51,54 @@
             ou                      -->  |
             não                     -->  ~    
             Deslocamento a direita  -->  >>
-            Deslocamento a esquerda -->  <<  
+            Deslocamento a esquerda -->  << 
+            ou exclusivo            -->  ^ 
 
             Se dado = '@' Então   // pino 3 é um bit do byte lido.
                 Escreva("Entrada Proibida!")
             Fim Se.
         }
 */
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#define LOTACAO_MAXIMA 5
+
+void le_porta(char *);
+
+int main(void)
+{
+    int qtde = 0;
+    char dado;
+    while(1)
+    {
+        system("clear"); 
+        printf("================================\n");
+        printf("    SUPERMERCADO DO BAIRRO\n");
+        printf("--------------------------------\n\n");
+        printf("   Controle de Portaria\n\n");
+        printf("     Lotação Máxima: %d\n", LOTACAO_MAXIMA);
+        printf("   Clientes na loja: %d\n", qtde);
+        le_porta(&dado);
+        if (dado == '@')
+            printf("Entrada proíbida! Febre detectada.\n");
+        else
+            if (qtde == LOTACAO_MAXIMA)
+                printf("Entrada proíbida! Supermercado lotado.\n");
+            else{
+                printf("Entrada liberada!\n");
+                qtde++;
+            }
+    }
+}
+
+void le_porta(char *dado_lido)
+{
+    int porta;
+    ssize_t iQtdeLida;
+    porta = open("/dev/pts/4", O_RDONLY);
+    iQtdeLida = read(porta, dado_lido, sizeof(char));
+    close(porta);
+};
