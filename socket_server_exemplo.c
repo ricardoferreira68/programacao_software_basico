@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
         exit(1);
     }
     printf("Aqui sua mensagem: %s\n",buffer);
-    n = write(newsockfd,"Eu recebi sua mensagem",18);
+    n = write(newsockfd,"Eu recebi sua mensagem",22);
     if (n < 0) 
     {
         printf("ERRO escrevendo no socket");
