@@ -1,8 +1,8 @@
 #include <stdio.h>
 int main(void)
 {
-    char A = 32, B, C, D, E;
-    B = A >> 1;
+    int A = 5, B, C, D, E;
+    B = 5 >> 1;
     C = A >> 2;
     D = A >> 3;
     E = A >> 4;
