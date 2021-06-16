@@ -4,7 +4,7 @@
 void main(void)
 {
     HANDLE hComm;
-    char ComPortName[] = "COM1"; // Nome da porta a ser aberta.BOOL Status;
+    char ComPortName[] = "COM1"; // Nome da porta a ser aberta.
     printf("\n\n    +==========================================+");
     printf("\n | Transmissao Serial |");
     printf("\n+==========================================+\n");
